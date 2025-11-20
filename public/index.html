@@ -6,9 +6,11 @@
     <title>Anshul Subramanian - AI/ML Engineer</title>
     <meta name="description" content="AI/ML Engineer with 4+ years building production-ready solutions at scale. Specializing in computer vision and deep learning.">
     <script>
-        // Set base path for GitHub Pages
-        const basePath = window.location.pathname.split('/').slice(0, -1).join('/') || '';
-        document.write('<base href="' + (basePath ? basePath + '/' : '/') + '">');
+        // Set base path - works for both custom domain (/) and GitHub Pages subdirectory
+        const pathname = window.location.pathname;
+        const isCustomDomain = pathname === '/' || !pathname.includes('/anshul-subramanian-portfolio');
+        const basePath = isCustomDomain ? '/' : '/anshul-subramanian-portfolio/';
+        document.write('<base href="' + basePath + '">');
     </script>
     <link rel="icon" type="image/jpeg" href="assets/home/anshul-passport.jpeg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
