@@ -319,8 +319,11 @@ body {
     gap: 16px;
     flex-wrap: nowrap;
     overflow-x: auto;
+    overflow-y: hidden;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
 }
 
 .expertise-content::-webkit-scrollbar {
@@ -869,6 +872,9 @@ body {
     border-radius: 16px;
     text-decoration: none;
     transition: all 0.3s ease;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    min-width: 0;
 }
 
 .contact-item:hover {
@@ -889,6 +895,9 @@ body {
     font-weight: 600;
     color: var(--text-primary);
     transition: color 0.3s ease;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
 }
 
 .contact-item:hover .contact-value {
@@ -941,14 +950,34 @@ body {
     .expertise-content {
         flex-wrap: nowrap;
         overflow-x: auto;
+        overflow-y: hidden;
+        padding: 0 16px;
+        gap: 12px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .expertise-label {
+        font-size: 11px;
+    }
+
+    .expertise-separator {
+        font-size: 16px;
     }
 
     .expertise-tags {
-        gap: 16px;
+        gap: 12px;
     }
 
     .expertise-tag {
-        font-size: 14px;
+        font-size: 13px;
+    }
+
+    .contact-item {
+        padding: 20px;
+    }
+
+    .contact-value {
+        font-size: 16px;
     }
 
     .projects-grid,
@@ -998,6 +1027,41 @@ body {
     .patent-card,
     .timeline-content {
         padding: 24px;
+    }
+
+    .expertise-bar {
+        padding: 12px 0;
+    }
+
+    .expertise-content {
+        padding: 0 12px;
+        gap: 8px;
+    }
+
+    .expertise-label {
+        font-size: 10px;
+    }
+
+    .expertise-separator {
+        font-size: 14px;
+    }
+
+    .expertise-tags {
+        gap: 10px;
+    }
+
+    .expertise-tag {
+        font-size: 12px;
+    }
+
+    .contact-item {
+        padding: 16px;
+    }
+
+    .contact-value {
+        font-size: 14px;
+        line-height: 1.5;
+        word-break: break-all;
     }
 }
 
