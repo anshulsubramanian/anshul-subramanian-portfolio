@@ -273,54 +273,38 @@ const cursor = document.createElement('div');
 cursor.className = 'custom-cursor';
 document.body.appendChild(cursor);
 
-const cursorFollower = document.createElement('div');
-cursorFollower.className = 'cursor-follower';
-document.body.appendChild(cursorFollower);
-
 document.addEventListener('mousemove', (e) => {
     cursor.style.left = e.clientX + 'px';
     cursor.style.top = e.clientY + 'px';
-    
-    setTimeout(() => {
-        cursorFollower.style.left = e.clientX + 'px';
-        cursorFollower.style.top = e.clientY + 'px';
-    }, 100);
 });
 
 // Add cursor styles
 const cursorStyle = document.createElement('style');
 cursorStyle.textContent = `
     .custom-cursor {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: var(--accent);
+        width: 32px;
+        height: 32px;
+        background-image: url('assets/mouse.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
         position: fixed;
         pointer-events: none;
         z-index: 9999;
         transform: translate(-50%, -50%);
         transition: transform 0.1s ease;
-        mix-blend-mode: difference;
     }
     
     .cursor-follower {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        border: 2px solid var(--accent);
-        position: fixed;
-        pointer-events: none;
-        z-index: 9998;
-        transform: translate(-50%, -50%);
-        transition: width 0.3s ease, height 0.3s ease;
-        mix-blend-mode: difference;
+        display: none;
     }
     
-    a:hover ~ .cursor-follower,
-    button:hover ~ .cursor-follower,
-    .project-card:hover ~ .cursor-follower {
-        width: 60px;
-        height: 60px;
+    * {
+        cursor: none !important;
+    }
+    
+    a, button, .project-card, .nav-link, .btn, .contact-item {
+        cursor: none !important;
     }
 `;
 document.head.appendChild(cursorStyle);
@@ -328,7 +312,6 @@ document.head.appendChild(cursorStyle);
 // Hide cursor on mobile
 if (window.matchMedia('(max-width: 768px)').matches) {
     cursor.style.display = 'none';
-    cursorFollower.style.display = 'none';
 }
 
 // Image Gallery Carousel for GAN Project
