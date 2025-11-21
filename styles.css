@@ -33,6 +33,11 @@ body {
     color: var(--text-primary);
     line-height: 1.6;
     overflow-x: hidden;
+    cursor: none;
+}
+
+* {
+    cursor: none !important;
 }
 
 .container {
